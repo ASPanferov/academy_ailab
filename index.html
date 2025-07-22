@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор программ обучения ИИ-инструментам</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Интерактивный конструктор для создания персональных программ обучения искусственному интеллекту и современным ИИ-инструментам">
+    <meta name="keywords" content="обучение ИИ, ChatGPT, Claude, Perplexity, искусственный интеллект, курсы">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Конструктор программ обучения ИИ-инструментам">
+    <meta property="og:description" content="Создавайте персональные программы обучения ИИ-инструментам из модульных уроков">
+    <meta property="og:type" content="website">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ИИ-Конструктор</h1>
+                    <p>Обучение будущего</p>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#catalog">Каталог уроков</a></li>
+                        <li><a href="#constructor">Конструктор</a></li>
+                        <li><a href="#programs">Готовые программы</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Создайте персональную программу обучения ИИ-инструментам</h2>
+                <p>Модульная система обучения позволяет составить идеальный курс под ваши нужды из проверенных уроков по ChatGPT, Claude, Perplexity и другим современным инструментам</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('catalog')">Выбрать уроки</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('constructor')">Создать программу</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters" id="filters">
+        <div class="container">
+            <h3>Фильтры</h3>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="difficulty-filter">Уровень сложности:</label>
+                    <select id="difficulty-filter">
+                        <option value="">Все уровни</option>
+                        <option value="beginner">Начинающий</option>
+                        <option value="intermediate">Средний</option>
+                        <option value="advanced">Продвинутый</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="tools-filter">Инструменты:</label>
+                    <select id="tools-filter">
+                        <option value="">Все инструменты</option>
+                        <option value="ChatGPT">ChatGPT</option>
+                        <option value="Claude">Claude</option>
+                        <option value="Perplexity">Perplexity</option>
+                        <option value="Copilot">Copilot</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="duration-filter">Длительность:</label>
+                    <select id="duration-filter">
+                        <option value="">Любая</option>
+                        <option value="30">До 30 мин</option>
+                        <option value="60">До 1 часа</option>
+                        <option value="120">До 2 часов</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="btn btn-outline" id="clear-filters">Сбросить фильтры</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <h2>Каталог уроков</h2>
+            <div class="courses-grid" id="courses-grid">
+                <!-- Курсы будут загружены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Constructor Section -->
+    <section class="constructor" id="constructor">
+        <div class="container">
+            <h2>Конструктор программы</h2>
+            <div class="constructor-layout">
+                <div class="selected-courses">
+                    <h3>Выбранные уроки</h3>
+                    <div class="course-list" id="selected-courses">
+                        <div class="empty-state">
+                            <p>Перетащите уроки сюда для создания программы</p>
+                        </div>
+                    </div>
+                    <div class="program-summary">
+                        <div class="summary-item">
+                            <span>Общая продолжительность:</span>
+                            <span id="total-duration">0 мин</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Количество уроков:</span>
+                            <span id="total-lessons">0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Ориентировочная стоимость:</span>
+                            <span id="total-price">0 ₽</span>
+                        </div>
+                    </div>
+                    <div class="constructor-actions">
+                        <button class="btn btn-primary" id="save-program">Сохранить программу</button>
+                        <button class="btn btn-outline" id="clear-program">Очистить</button>
+                        <button class="btn btn-secondary" id="export-program">Экспорт в PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <h2>Готовые программы</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>Базовый курс</h3>
+                        <span class="program-duration">4 часа</span>
+                    </div>
+                    <div class="program-description">
+                        <p>Основы работы с ИИ-инструментами. Идеально для начинающих.</p>
+                        <ul>
+                            <li>Введение в искусственный интеллект</li>
+                            <li>Основы ChatGPT</li>
+                            <li>Промпт-инжиниринг</li>
+                            <li>Практические задания</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" onclick="loadProgram('basic')">Выбрать программу</button>
+                </div>
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>Интенсив</h3>
+                        <span class="program-duration">8 часов</span>
+                    </div>
+                    <div class="program-description">
+                        <p>Углубленное изучение множества инструментов за короткое время.</p>
+                        <ul>
+                            <li>Все из базового курса</li>
+                            <li>Claude и артефакты</li>
+                            <li>Perplexity для исследований</li>
+                            <li>Автоматизация процессов</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" onclick="loadProgram('intensive')">Выбрать программу</button>
+                </div>
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>Продвинутый</h3>
+                        <span class="program-duration">12 часов</span>
+                    </div>
+                    <div class="program-description">
+                        <p>Экспертный уровень с глубоким погружением в специализированные инструменты.</p>
+                        <ul>
+                            <li>Все предыдущие уровни</li>
+                            <li>Создание агентов</li>
+                            <li>Интеграции и API</li>
+                            <li>Корпоративные решения</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary" onclick="loadProgram('advanced')">Выбрать программу</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>ИИ-Конструктор</h4>
+                    <p>Персональное обучение искусственному интеллекту</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Для заказа обучения и консультаций</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/utils.js"></script>
+    <script src="js/constructor.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
